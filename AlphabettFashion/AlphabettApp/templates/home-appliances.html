@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% for appliances in home_appliances%}
+        <div class="item-list">
+            <div class="item">
+                <div class="item-image">
+                    <img src="{{ appliances.image.url }}" alt="product-image">
+                </div>
+                <div class="product-name">
+                    <a href="#">
+                        {{ appliances.product_name }}
+                    </a>
+                </div>
+                <div class="product-price">
+                    <p>
+                        KSH {{ appliances.product_selling_price }}
+                    </p>
+                </div>
+                <div class="likes-cart">
+                    <div class="likes">
+                        <div>
+                            <input type="button" value="SEND MESSAGE">
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <input type="button" value="CHAT ON WHATSAPP">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock%}

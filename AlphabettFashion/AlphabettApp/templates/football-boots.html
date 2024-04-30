@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% for shoes in shoe%}
+        {% if shoes.sub_category == 'football' %}
+        <div class="item-list">
+            <div class="item">
+                <div class="item-image">
+                    <img src="{{ shoes.image.url }}" alt="product-image">
+                </div>
+                <div class="product-name">
+                    <a href="#">
+                        {{ shoes.product_name }} sz {{ shoes.product_size }}
+                    </a>
+                </div>
+                <div class="product-price">
+                    <p>
+                        KSH {{ shoes.product_selling_price }}
+                    </p>
+                </div>
+                <div class="likes-cart">
+                    <div class="likes">
+                        <div>
+                            <input type="button" value="SEND MESSAGE">
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <input type="button" value="CHAT ON WHATSAPP">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="empty">
+            <h3>
+                Out of Stock
+            </h3>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endblock%}

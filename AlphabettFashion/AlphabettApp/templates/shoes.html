@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% for shoes in shoe %}
+        <div class="item-list">
+            <div class="item">
+                <div class="item-image">
+                    <img src="{{ shoes.image.url }}" alt="product-image">
+                </div>
+                <div class="product_name">
+                    <a href="#">
+                        <b>
+                            {{ shoes.product_name }} size {{ shoes.product_size }}
+                        </b>
+                    </a>
+                </div>
+                <div class="product_price">
+                    <p>
+                        KSH {{ shoes.product_selling_price }}
+                    </p>
+                </div>
+                <div class="likes-cart">
+                    <div class="likes">
+                        <div>
+                            <input type="button" value="SEND MESSAGE">
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <input type="button" value="CHAT ON WHATSAPP">
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}

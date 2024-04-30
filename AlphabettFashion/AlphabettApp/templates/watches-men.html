@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+{% for watch in watches %}
+    {% if watch.product_gender == 'male' %}
+    <div class="item-list">
+        <div class="item">
+            <div class="item-image">
+                <img src="{{ watch.product_image.url }}" alt="product-image">
+            </div>
+            <div class="product_name">
+                <a href="#">
+                    <b>
+                        {{ watch.product_name }} {{ watch.product_color }}
+                    </b>
+                </a>
+            </div>
+            <div class="product_price">
+                <h5>
+                    KSH {{ watch.product_selling_price }}
+                </h5>
+            </div>
+            <div class="likes-cart">
+                <div class="likes">
+                    <div>
+                        <input type="button" value="SEND MESSAGE">
+                    </div>
+                </div>
+                <div class="cart">
+                    <input type="button" value="CHAT ON WHATSAPP">
+                </div>
+            </div>
+        </div>
+    </div>
+    {% else %}
+        <div class="empty">
+            <h3>
+                Out of Stock
+            </h3>
+        </div>
+    {% endif %}
+{% endfor %}
+{% endblock %}
