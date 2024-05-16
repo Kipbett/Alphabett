@@ -52,9 +52,9 @@ class Watches(models.Model):
 
 class HomeAppliances(models.Model):
     PRODUCT_SELECTION = (
-        ('kitchen-ware', 'KITCHENWARE'),
+        ('kitchen_ware', 'KITCHENWARE'),
         ('utensils', 'UTENSILS'),
-        ('kitchen-appliances', 'KITCHEN APPLIANCES')
+        ('kitchen_appliances', 'KITCHEN APPLIANCES')
     )
 
     product_name = models.CharField(max_length=100)

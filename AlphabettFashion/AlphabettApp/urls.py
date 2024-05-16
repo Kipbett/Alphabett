@@ -18,9 +18,9 @@ urlpatterns = [
     path('watches/men', views.watches_men, name="men"),
     path('watches/ladies', views.watches_ladies, name="ladies"),
     path('home-appliances/', views.home_appliances, name="home-appliances"),
-    path('watches/kitchen-ware', views.kitchen_ware, name="kitchen-ware"),
-    path('watches/utensils', views.utensils, name="utensils"),
-    path('watches/kitchen_appliances', views.kitchen_appliances, name="kitchen-appliances"),
+    path('home-appliances/kitchen-ware', views.kitchen_ware, name="kitchen-ware"),
+    path('home-appliances/utensils', views.utensils, name="utensils"),
+    path('home-appliances/kitchen_appliances', views.kitchen_appliances, name="kitchen-appliances"),
 ]
 
 if settings.DEBUG:

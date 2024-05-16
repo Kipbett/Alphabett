@@ -76,6 +76,43 @@
             <div class="show-more">
                 <a href="{% url 'watches' %}"><b>Show More</b></a>
             </div>
+
+            <div class="category-name">
+                <h2>HOME APPLIANCES</h2>
+            </div>
+            {% for appliances in home_appliances %}
+            <div class="item-list">
+                <div class="item">
+                    <div class="item-image">
+                        <img src="{{ appliances.product_image.url }}" alt="product-image">
+                    </div>
+                    <div class="product-name">
+                        <a href="#">
+                            <b>{{ appliances.product_name }}</b>
+                        </a>
+                    </div>
+                    <div class="product_price">
+                        <p>
+                            KSH {{ appliances.product_selling_price}}
+                        </p>
+                    </div>
+                    <div class="likes-cart">
+                        <div class="likes">
+                            <div>
+                                <input type="button" value="SEND MESSAGE">
+                            </div>
+                        </div>
+                        <div class="cart">
+                            <input type="button" value="CHAT ON WHATSAPP">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+            <div class="show-more">
+                <a href="{% url 'home-appliances' %}"><b>Show More</b></a>
+            </div>
+
         </div>
     </div>
 {% endblock %}

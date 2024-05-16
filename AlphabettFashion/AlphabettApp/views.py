@@ -1,4 +1,5 @@
 from django.shortcuts import render
+
 from .models import Product, Watches, HomeAppliances
 
 
@@ -7,7 +8,8 @@ from .models import Product, Watches, HomeAppliances
 def products(request):
     shoe = Product.objects.all()
     watches = Watches.objects.all()
-    return render(request, 'products.html', {'shoe': shoe, 'watches': watches})
+    homeappliances = HomeAppliances.objects.all()
+    return render(request, 'products.html', {'shoe': shoe, 'watches': watches, 'home_appliances': homeappliances})
 
 def shoes(request):
     shoe = Product.objects.all()
@@ -50,17 +52,17 @@ def watches_ladies(request):
     return render(request, 'watches.html', {'watches': watch})
 
 def home_appliances(request):
-    home_applainces = HomeAppliances.objects.all()
-    return render(request, 'home-appliances.html', {'home_appliances': home_applainces})
+    homeappliances = HomeAppliances.objects.all()
+    return render(request, 'home-appliances.html', {'home_appliances': homeappliances})
 
 def utensils(request):
-    home_applainces = HomeAppliances.objects.all()
-    return render(request, 'home-appliances.html', {'home-appliances': home_applainces})
+    utensil = HomeAppliances.objects.all()
+    return render(request, 'utensils.html', {'utensils': utensil})
 
 def kitchen_ware(request):
-    home_applainces = HomeAppliances.objects.all()
-    return render(request, 'home-appliances.html', {'home-appliances': home_applainces})
+    kitcheware = HomeAppliances.objects.all()
+    return render(request, 'kitchen-ware.html', {'kitchen_ware': kitcheware})
 
 def kitchen_appliances(request):
-    home_applainces = HomeAppliances.objects.all()
-    return render(request, 'home-appliances.html', {'home-appliances': home_applainces})
+    kitchenapplainces = HomeAppliances.objects.all()
+    return render(request, 'home-appliances.html', {'kitchen_appliances': kitchenapplainces})

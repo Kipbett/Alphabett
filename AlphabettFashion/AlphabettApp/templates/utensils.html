@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    {% for utensil in utensils%}
+        {% if utensil.product_category == 'utensils' %}
+        <div class="item-list">
+            <div class="item">
+                <div class="item-image">
+                    <img src="{{ utensil.image.url }}" alt="product-image">
+                </div>
+                <div class="product-name">
+                    <a href="#">
+                        <b>
+                            {{ utensil.product_name }}
+                        </b>
+                    </a>
+                </div>
+                <div class="product-price">
+                    <h5>
+                        KSH {{ utensil.product_selling_price }}
+                    </h5>
+                </div>
+                <div class="likes-cart">
+                    <div class="likes">
+                        <div>
+                            <input type="button" value="SEND MESSAGE">
+                        </div>
+                    </div>
+                    <div class="cart">
+                        <input type="button" value="CHAT ON WHATSAPP">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
