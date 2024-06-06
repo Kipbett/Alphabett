@@ -3,43 +3,21 @@
 {% load static %}
 
 {% block content %}
+<div class="row">
     {% for watch in watches %}
         {% if watch.product_gender == 'ladies' %}
-        <div class="item-list">
-            <div class="item">
-                <div class="item-image">
-                    <img src="{{ watch.product_image.url }}" alt="product-image">
-                </div>
-                <div class="product_name">
-                    <a href="#">
-                        <b>
-                            {{ watch.product_name }} {{ watch.product_color }}
-                        </b>
-                    </a>
-                </div>
-                <div class="product_price">
-                    <p>
-                        KSH {{ watch.product_selling_price }}
-                    </p>
-                </div>
-                <div class="likes-cart">
-                    <div class="likes">
-                        <div>
-                            <input type="button" value="SEND MESSAGE">
-                        </div>
-                    </div>
-                    <div class="cart">
-                        <input type="button" value="CHAT ON WHATSAPP">
-                    </div>
+        <div class="col">
+            <div class="card" style="width:16rem">
+                <img class="card-img-top" style="height:10rem" src="{ watch.product_image.url }}">
+                <div class="card-body">
+                    <h5 class="card-title">{{ watch.product_name }} {{ watch.product_color }}</h5>
+                    <p class="card-text">KSH {{ watch.product_selling_price }}</p>
+                    <button class="btn btn-outline-success btn-block btn-sm" type="button">Send Message</button>
+                    <button class="btn btn-outline-success btn-block btn-sm mt-3" type="button">Send WhatsApp</button>
                 </div>
             </div>
         </div>
-        {% else %}
-        <div class="empty">
-            <h3>
-                Out of Stock
-            </h3>
-        </div>
-        {% endif %}
+        {% endif%}
     {% endfor %}
+</div>
 {% endblock %}

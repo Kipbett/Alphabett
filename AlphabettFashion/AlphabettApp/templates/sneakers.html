@@ -3,6 +3,23 @@
 {% load static %}
 
 {% block content %}
+<div class="row">
+    {% for shoes in shoe%}
+        {% if shoes.sub_category == 'sneakers' %}
+            <div class="col">
+                <div class="card" style="width:16rem">
+                    <img class="card-img-top" src="{{ shoes.image.url }}" style="height:10rem">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ shoes.product_name }} size {{ shoes.product_size }}</h5>
+                        <p class="card-text">KSH {{ shoes.product_selling_price }}</p>
+                        <button class="btn btn-outline-success btn-block btn-sm" type="button">Send Message</button>
+                        <button class="btn btn-outline-success btn-block btn-sm mt-3" type="button">Send WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+</div>
     {% for shoes in shoe%}
         {% if shoes.sub_category == 'sneakers' %}
         <div class="item-list">

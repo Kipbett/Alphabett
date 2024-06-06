@@ -8,35 +8,23 @@
             <div class="category-name">
                 <h2>SHOES</h2>
             </div>
-            {% for shoes in shoe %}
-            <div class="item-list">
-                <div class="item">
-                    <div class="item-image">
-                        <img src="{{ shoes.image.url }}" alt="product-image">
-                    </div>
-                    <div class="product-name">
-                        <a href="#">
-                            {{ shoes.product_name }} Size {{ shoes.product_size }}
-                        </a>
-                    </div>
-                    <div class="product-price">
-                        <p>
-                            {{ shoes.product_selling_price }}
-                        </p>
-                    </div>
-                    <div class="likes-cart">
-                        <div class="likes">
-                            <div>
-                                <input type="button" value="SEND MESSAGE">
-                            </div>
-                        </div>
-                        <div class="cart">
-                            <input type="button" value="CHAT ON WHATSAPP">
+
+            <div class="row">
+                {% for shoes in shoe %}
+                <div class="col">
+                    <div class="card" style="width:16rem">
+                        <img class="card-img-top" style="height:10rem" src="{{ shoes.image.url }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ shoes.product_name }} Size {{ shoes.product_size }}</h5>
+                            <p class="card-text">{{ shoes.product_selling_price }}</p>
+                            <button class="btn btn-outline-success btn-block btn-sm mt-3" type="button">Send Message</button>
+                            <button class="btn btn-outline-success btn-block btn-sm mt-3    " type="button">Send WhatsApp</button>
                         </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+
             <div class="show-more">
                 <a href="{% url 'shoes' %}"><b>Show More</b></a>
             </div>
@@ -44,35 +32,22 @@
             <div class="category-name">
                 <h2>WATCHES</h2>
             </div>
-            {% for watch in watches %}
-            <div class="item-list">
-                <div class="item">
-                    <div class="item-image">
-                        <img src="{{ watch.product_image.url }}" alt="product-image">
-                    </div>
-                    <div class="product-name">
-                        <a href="#">
-                            <b>{{ watch.product_name }} {{ watch.product_color }}</b>
-                        </a>
-                    </div>
-                    <div class="product_price">
-                        <p>
-                            KSH {{ watch.product_selling_price}}
-                        </p>
-                    </div>
-                    <div class="likes-cart">
-                        <div class="likes">
-                            <div>
-                                <input type="button" value="SEND MESSAGE">
+            <div class="row">
+                {% for watch in watches %}
+                    <div class="col">
+                        <div class="card" style="width:16rem">
+                            <img class="card-img-top" src="{{ watch.product_image.url }}" style="height:10rem">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ watch.product_name }}</h5>
+                                <p class="card-text">KSH {{ watch.product_selling_price}}</p>
+                                <button class="btn btn-outline-success btn-block btn-sm mt-3" type="button">Send Message</button>
+                                <button class="btn btn-outline-success btn-block btn-sm mt-3" type="button">Send WhatsApp</button>
                             </div>
                         </div>
-                        <div class="cart">
-                            <input type="button" value="CHAT ON WHATSAPP">
-                        </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
+
             <div class="show-more">
                 <a href="{% url 'watches' %}"><b>Show More</b></a>
             </div>
@@ -80,39 +55,24 @@
             <div class="category-name">
                 <h2>HOME APPLIANCES</h2>
             </div>
-            {% for appliances in home_appliances %}
-            <div class="item-list">
-                <div class="item">
-                    <div class="item-image">
-                        <img src="{{ appliances.product_image.url }}" alt="product-image">
-                    </div>
-                    <div class="product-name">
-                        <a href="#">
-                            <b>{{ appliances.product_name }}</b>
-                        </a>
-                    </div>
-                    <div class="product_price">
-                        <p>
-                            KSH {{ appliances.product_selling_price}}
-                        </p>
-                    </div>
-                    <div class="likes-cart">
-                        <div class="likes">
-                            <div>
-                                <input type="button" value="SEND MESSAGE">
+            <div class="row">
+                {% for appliances in home_appliances %}
+                    <div class="col">
+                        <div class="card" style="width:16rem">
+                            <img class="card-img-top" style="height:16rem" src="{{ appliances.product_image.url }}">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ appliances.product_name }}</h5>
+                                <p class="card-text">KSH {{ appliances.product_selling_price}}</p>
+                                <button class="btn btn-outline-success btn-block btn-sm" type="button">Send Message</button>
+                                <button class="btn btn-outline-success btn-block btn-sm mt-3" type="button">Send WhatsApp</button>
                             </div>
                         </div>
-                        <div class="cart">
-                            <input type="button" value="CHAT ON WHATSAPP">
-                        </div>
                     </div>
-                </div>
+                {% endfor %}
             </div>
-            {% endfor %}
             <div class="show-more">
                 <a href="{% url 'home-appliances' %}"><b>Show More</b></a>
             </div>
-
         </div>
     </div>
 {% endblock %}

@@ -3,41 +3,22 @@
 {% load static %}
 
 {% block content %}
+
+<div class="row">
     {% for shoes in shoe%}
         {% if shoes.sub_category == 'flats' %}
-        <div class="item-list">
-            <div class="item">
-                <div class="item-image">
-                    <img src="{{ shoes.image.url }}" alt="product-image">
-                </div>
-                <div class="product-name">
-                    <a href="#">
-                        {{ shoes.product_name }} size {{ shoes.product_size }}
-                    </a>
-                </div>
-                <div class="product-price">
-                    <p>
-                        KSH {{ shoes.product_selling_price }}
-                    </p>
-                </div>
-                <div class="likes-cart">
-                    <div class="likes">
-                        <div>
-                            <input type="button" value="SEND MESSAGE">
-                        </div>
-                    </div>
-                    <div class="cart">
-                        <input type="button" value="CHAT ON WHATSAPP">
+            <div class="col">
+                <div class="card" style="width:16rem">
+                    <img class="card-img-top" src="{{ shoes.image.url }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ shoes.product_name }} size {{ shoes.product_size }}</h5>
+                        <p class="card-text">KSH {{ shoes.product_selling_price }}</p>
+                        <button class="btn btn-outline-success btn-block btn-sm" type="button">Send Message</button>
+                        <button class="btn btn-outline-success btn-block btn-sm mt-3" type="button">Send WhatsApp</button>
                     </div>
                 </div>
             </div>
-        </div>
-        {% else %}
-        <div class="empty">
-            <h3>
-                Out of Stock
-            </h3>
-        </div>
         {% endif %}
     {% endfor %}
+</div>
 {% endblock%}

@@ -3,35 +3,19 @@
 {% load static %}
 
 {% block content %}
-    {% for shoes in shoe %}
-        <div class="item-list">
-            <div class="item">
-                <div class="item-image">
-                    <img src="{{ shoes.image.url }}" alt="product-image">
-                </div>
-                <div class="product_name">
-                    <a href="#">
-                        <b>
-                            {{ shoes.product_name }} size {{ shoes.product_size }}
-                        </b>
-                    </a>
-                </div>
-                <div class="product_price">
-                    <p>
-                        KSH {{ shoes.product_selling_price }}
-                    </p>
-                </div>
-                <div class="likes-cart">
-                    <div class="likes">
-                        <div>
-                            <input type="button" value="SEND MESSAGE">
-                        </div>
+    <div class="row">
+                {% for shoes in shoe %}
+                <div class="col">
+                    <div class="card" style="width:16rem">
+                        <img class="card-img-top" style="height:10rem" src="{{ shoes.image.url }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ shoes.product_name }} Size {{ shoes.product_size }}</h5>
+                        <p class="card-text">{{ shoes.product_name }} Size {{ shoes.product_size }}</p>
+                        <button class="btn btn-outline-success btn-block btn-sm" type="button">Send Message</button>
+                        <button class="btn btn-outline-success btn-block btn-sm mt-3" type="button">Send WhatsApp</button>
                     </div>
-                    <div class="cart">
-                        <input type="button" value="CHAT ON WHATSAPP">
                     </div>
                 </div>
-            </div>
-        </div>
-    {% endfor %}
+                {% endfor %}
+    </div>
 {% endblock %}
